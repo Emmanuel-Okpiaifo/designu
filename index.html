@@ -3,113 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesignU - Registration</title>
+    <title>DesignU</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Background Styling */
+        :root {
+            --primary-color: #1E3A8A; /* Medium-dark blue */
+            --text-color: #1E1E1E;
+        }
         body {
-            background: linear-gradient(180deg, #0a1931, #16213e);
-            color: white;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        input:focus {
-            border-color: #3b82f6 !important;
-            box-shadow: 0px 0px 8px rgba(59, 130, 246, 0.7);
+        .animate-fade-in {
+            animation: fade-in 1s ease-in-out;
+        }
+        .animate-fade-in.delay-1s {
+            animation-delay: 1s;
+        }
+        .animate-fade-in.delay-2s {
+            animation-delay: 2s;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('a[href="#flem"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#flem').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen px-4">
+<body class="bg-white">
+
+    <!-- Top Bar -->
+    <div class="bg-[var(--primary-color)] text-white py-2 text-center text-sm">
+        <p>+234 916 463 8956 &nbsp; | &nbsp; info@designu.io &nbsp; | &nbsp; 2 Insha-Allah close, off Ramat Crescent, Ogudu, Lagos</p>
+    </div>
 
     <!-- Navbar -->
-    <nav class="w-full flex justify-between items-center py-4 px-8 bg-[#16213e]">
-        <div class="flex items-center space-x-2">
-            <img src="https://via.placeholder.com/50" alt="Logo" class="w-10 h-10">
-            <span class="text-2xl font-bold text-white">DesignU</span>
+
+
+    <!-- Hero Section -->
+    <div class="relative flex flex-col items-center py-16 bg-cover bg-center" style="background-image: url('./martin-sanchez-G78c3DPmD_A-unsplash.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70"></div>
+        <img src="./300-x-100-icon-1.png" alt="Logo" class="w-24 mb-4 z-10 bg-white p-2 rounded">
+        <section class="w-full text-center py-20 px-6 z-10">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white animate-fade-in">Start Your Tech Journey with DesignU</h1>
+            <p class="text-lg text-gray-300 mt-4 animate-fade-in delay-1s">Join our expert-led courses and gain the skills to excel in the tech industry.</p>
+            <a href="#flem" class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-bold rounded-md hover:bg-yellow-500 transition transform hover:scale-105 animate-fade-in delay-2s">
+                Register Now
+            </a>
+        </section>
+    </div>
+
+    <!-- About Section -->
+    <div id="flem" class="flex flex-col items-center py-16">
+        <div class="text-gray-900 p-8 rounded-lg shadow-lg w-full max-w-4xl mt-16">
+            <h2 class="text-3xl font-bold text-center">Register Today!</h2>
+            <p class="text-center text-gray-600">Tech School April 2023</p>
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div>
+                    <label class="text-gray-700">First Name *</label>
+                    <input type="text" placeholder="Enter your first name" class="w-full p-3 border rounded-md">
+                </div>
+                <div>
+                    <label class="text-gray-700">Last Name *</label>
+                    <input type="text" placeholder="Enter your last name" class="w-full p-3 border rounded-md">
+                </div>
+                <div>
+                    <label class="text-gray-700">Phone Number *</label>
+                    <input type="tel" placeholder="Enter your phone number" class="w-full p-3 border rounded-md">
+                </div>
+                <div>
+                    <label class="text-gray-700">Email Address *</label>
+                    <input type="email" placeholder="Enter your email" class="w-full p-3 border rounded-md">
+                </div>
+                <div>
+                    <label class="text-gray-700">How old were you on your last birthday? *</label>
+                    <input type="number" placeholder="Enter your age" class="w-full p-3 border rounded-md">
+                </div>
+                <div>
+                    <label class="text-gray-700">What course are you enrolling for? *</label>
+                    <select class="w-full p-3 border rounded-md">
+                        <option>Select a course</option>
+                        <option>Product Design</option>
+                        <option>Product Management</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Employment Status -->
+            <h3 class="text-lg font-semibold text-gray-700 mt-6">Which of these options applies to you? *</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="status" class="w-5 h-5">
+                    <span>Currently a student</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="status" class="w-5 h-5">
+                    <span>Employed</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="status" class="w-5 h-5">
+                    <span>Unemployed</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="status" class="w-5 h-5">
+                    <span>Self-Employed</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="status" class="w-5 h-5">
+                    <span>I am currently serving</span>
+                </label>
+            </div>
+    
+            <!-- Tuition Payment -->
+            <h3 class="text-lg font-semibold text-gray-700 mt-6">What's your preferred tuition payment option? *</h3>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-3 mt-2">
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="payment" class="w-5 h-5">
+                    <span>Early bird registration - ₦60,000 (ends 25/03/2023)</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="payment" class="w-5 h-5">
+                    <span>One-time payment - ₦75,000</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="payment" class="w-5 h-5">
+                    <span>Pay in installments - ₦80,000 (₦40,000 upfront, ₦40,000 at week 3)</span>
+                </label>
+            </div>
+    
+            <!-- How Did You Hear About Us? -->
+            <h3 class="text-lg font-semibold text-gray-700 mt-6">How did you hear about this program? *</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="referral" class="w-5 h-5">
+                    <span>Social media</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="referral" class="w-5 h-5">
+                    <span>Friend / Family</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="referral" class="w-5 h-5">
+                    <span>Email</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="referral" class="w-5 h-5">
+                    <span>Other</span>
+                </label>
+            </div>
+    
+            <!-- Message -->
+            <div class="mt-6">
+                <label class="text-gray-700">Message/Request *</label>
+                <textarea rows="4" placeholder="Enter your message" class="w-full p-3 border rounded-md"></textarea>
+            </div>
+    
+            <!-- Submit Button -->
+            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md font-bold mt-6">
+                Submit Registration
+            </button>
         </div>
-        <button class="px-4 py-2 bg-yellow-400 text-gray-900 font-bold rounded-md hover:bg-yellow-500">
-            Online Academy
-        </button>
-    </nav>
-
-    <!-- Registration Form Section -->
-    <div class="bg-white text-gray-900 p-8 rounded-lg shadow-lg w-full max-w-4xl mt-16">
-        <h2 class="text-3xl font-bold">Registration</h2>
-
-        <!-- Personal Details -->
-        <h3 class="text-lg font-semibold text-gray-600 mt-4">Personal Details</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
-            <div>
-                <label class="text-gray-700">Full Name</label>
-                <input type="text" placeholder="Enter your name" class="w-full p-3 border rounded-md">
-            </div>
-            <div>
-                <label class="text-gray-700">Date of Birth</label>
-                <input type="date" class="w-full p-3 border rounded-md">
-            </div>
-            <div>
-                <label class="text-gray-700">Email</label>
-                <input type="email" placeholder="Enter your email" class="w-full p-3 border rounded-md">
-            </div>
-            <div>
-                <label class="text-gray-700">Mobile Number</label>
-                <input type="tel" placeholder="Enter mobile number" class="w-full p-3 border rounded-md">
-            </div>
-            <div>
-                <label class="text-gray-700">Gender</label>
-                <select class="w-full p-3 border rounded-md">
-                    <option>Select Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div>
-                <label class="text-gray-700">Occupation</label>
-                <input type="text" placeholder="Enter occupation" class="w-full p-3 border rounded-md">
-            </div>
-        </div>
-
-        <!-- Course Details -->
-        <h3 class="text-lg font-semibold text-gray-600 mt-6">Course Details</h3>
-        <div class="grid grid-cols-1  gap-4 mt-2">
-            <label class="text-gray-700">Course Type</label>
-            <select class="w-full p-3 border rounded-md">
-                <option>Select Course</option>
-                <option>Product Design</option>
-                <option>Product Management</option>
-                <option>Software Development</option>
-            </select>
-            <div>
-                <label class="text-gray-700">ID Number</label>
-                <input type="text" placeholder="Enter ID number" class="w-full p-3 border rounded-md">
-            </div>
-            <div>
-                <label class="text-gray-700">Issue State</label>
-                <input type="text" placeholder="Enter ID issue state" class="w-full p-3 border rounded-md">
-            </div>
-            <div>
-                <label class="text-gray-700">Expiry Date</label>
-                <input type="date" class="w-full p-3 border rounded-md">
-            </div>
-        </div>
-
-        <!-- Submit Button -->
-        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md font-bold mt-6">
-            Next →
-        </button>
     </div>
 
     <!-- Footer -->
-    <footer class="mt-16 text-center py-6 text-gray-400">
-        <p>©2024 DesignU. All Rights Reserved.</p>
+    <footer class="bg-[var(--primary-color)] text-white py-10">
+        <div class="container mx-auto px-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-3">DesignU Pages</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">Tech School</a></li>
+                    <li><a href="#" class="hover:underline">DesignU Online</a></li>
+                    <li><a href="#" class="hover:underline">Design School</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2">
+                <h3 class="text-xl font-bold mb-3">Join our list!</h3>
+                <p class="text-gray-200 mb-4">Stay up-to-date with the latest tech news, freebies, and special offers.</p>
+                <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <input type="text" placeholder="First Name *" class="p-3 rounded-md text-black">
+                    <input type="text" placeholder="Last Name *" class="p-3 rounded-md text-black">
+                    <input type="email" placeholder="Email *" class="p-3 rounded-md text-black">
+                    <button class="bg-white text-[var(--primary-color)] font-bold py-3 rounded-md hover:bg-gray-200 transition md:col-span-3">
+                        Get Started
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center text-gray-300 text-sm mt-8">
+            ©2024 DesignU. All Rights Reserved.
+        </div>
     </footer>
 
 </body>
 </html>
-
-
