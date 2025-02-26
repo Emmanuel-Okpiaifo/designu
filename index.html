@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,58 +9,103 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         :root {
-            --primary-color: #1E3A8A; /* Medium-dark blue */
+            --primary-color: #1E3A8A;
+            /* Medium-dark blue */
             --text-color: #1E1E1E;
         }
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-color);
         }
+
         @keyframes fade-in {
             from {
                 opacity: 0;
+                transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
+
         .animate-fade-in {
             animation: fade-in 1s ease-in-out;
         }
+
         .animate-fade-in.delay-1s {
             animation-delay: 1s;
         }
+
         .animate-fade-in.delay-2s {
             animation-delay: 2s;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('a[href="#flem"]').addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector('#flem').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </head>
+
 <body class="bg-white">
 
     <!-- Top Bar -->
     <div class="bg-[var(--primary-color)] text-white py-2 text-center text-sm">
-        <p>+234 916 463 8956 &nbsp; | &nbsp; info@designu.io &nbsp; | &nbsp; 2 Insha-Allah close, off Ramat Crescent, Ogudu, Lagos</p>
+        <p>+234 916 463 8956 &nbsp; | &nbsp; info@designu.io &nbsp; | &nbsp; 2 Insha-Allah close, off Ramat Crescent,
+            Ogudu, Lagos</p>
     </div>
 
     <!-- Navbar -->
 
 
     <!-- Hero Section -->
-    <div class="relative flex flex-col items-center py-16 bg-cover bg-center" style="background-image: url('./martin-sanchez-G78c3DPmD_A-unsplash.jpg');">
+    <div class="relative flex flex-col items-center py-16 bg-cover bg-center"
+        style="background-image: url('./martin-sanchez-G78c3DPmD_A-unsplash.jpg');">
         <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70"></div>
         <img src="./300-x-100-icon-1.png" alt="Logo" class="w-24 mb-4 z-10 bg-white p-2 rounded">
         <section class="w-full text-center py-20 px-6 z-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white animate-fade-in">Start Your Tech Journey with DesignU</h1>
-            <p class="text-lg text-gray-300 mt-4 animate-fade-in delay-1s">Join our expert-led courses and gain the skills to excel in the tech industry.</p>
-            <a href="#flem" class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-bold rounded-md hover:bg-yellow-500 transition transform hover:scale-105 animate-fade-in delay-2s">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white animate-fade-in">Start Your Tech Journey with
+                DesignU</h1>
+            <p class="text-lg text-gray-300 mt-4 animate-fade-in delay-1s">Join our expert-led courses and gain the
+                skills to excel in the tech industry.</p>
+            <a href="#flem"
+                class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-bold rounded-md hover:bg-yellow-500 transition transform hover:scale-105 animate-fade-in delay-2s">
                 Register Now
             </a>
         </section>
@@ -67,114 +113,150 @@
 
     <!-- About Section -->
     <div id="flem" class="flex flex-col items-center py-16">
-        <div class="text-gray-900 p-8 rounded-lg shadow-lg w-full max-w-4xl mt-16">
-            <h2 class="text-3xl font-bold text-center">Register Today!</h2>
-            <p class="text-center text-gray-600">Tech School April 2023</p>
-    
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <div class="text-gray-900 p-8 rounded-lg shadow-lg w-full max-w-4xl mt-16 bg-white animate-fade-in"
+            style="box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);">
+            <h2 class="text-3xl font-bold text-center mb-6">Register Today!</h2>
+            <p class="text-center text-gray-600 mb-8">Tech School April 2023</p>
+
+            <form action="https://formsubmit.co/emmaokpiaifo@gmail.com" method="POST"
+                class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Hidden inputs for FormSubmit.co configuration -->
+                <input type="hidden" name="_subject" value="New Registration!">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div>
-                    <label class="text-gray-700">First Name *</label>
-                    <input type="text" placeholder="Enter your first name" class="w-full p-3 border rounded-md">
+                    <label class="text-gray-700 font-semibold">First Name *</label>
+                    <input type="text" name="first_name" placeholder="Enter your first name"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required>
                 </div>
                 <div>
-                    <label class="text-gray-700">Last Name *</label>
-                    <input type="text" placeholder="Enter your last name" class="w-full p-3 border rounded-md">
+                    <label class="text-gray-700 font-semibold">Last Name *</label>
+                    <input type="text" name="last_name" placeholder="Enter your last name"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required>
                 </div>
                 <div>
-                    <label class="text-gray-700">Phone Number *</label>
-                    <input type="tel" placeholder="Enter your phone number" class="w-full p-3 border rounded-md">
+                    <label class="text-gray-700 font-semibold">Phone Number *</label>
+                    <input type="tel" name="phone_number" placeholder="Enter your phone number"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required>
                 </div>
                 <div>
-                    <label class="text-gray-700">Email Address *</label>
-                    <input type="email" placeholder="Enter your email" class="w-full p-3 border rounded-md">
+                    <label class="text-gray-700 font-semibold">Email Address *</label>
+                    <input type="email" name="email" placeholder="Enter your email"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required>
                 </div>
                 <div>
-                    <label class="text-gray-700">How old were you on your last birthday? *</label>
-                    <input type="number" placeholder="Enter your age" class="w-full p-3 border rounded-md">
+                    <label class="text-gray-700 font-semibold">AGE *</label>
+                    <input type="number" name="age" placeholder="Enter your age"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required>
                 </div>
                 <div>
-                    <label class="text-gray-700">What course are you enrolling for? *</label>
-                    <select class="w-full p-3 border rounded-md">
-                        <option>Select a course</option>
-                        <option>Product Design</option>
-                        <option>Product Management</option>
+                    <label class="text-gray-700 font-semibold">What course are you enrolling for? *</label>
+                    <select name="course"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required>
+                        <option value="">Select a course</option>
+                        <option value="Product Design">Product Design</option>
+                        <option value="Product Management">Product Management</option>
                     </select>
                 </div>
-            </div>
-    
-            <!-- Employment Status -->
-            <h3 class="text-lg font-semibold text-gray-700 mt-6">Which of these options applies to you? *</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="status" class="w-5 h-5">
-                    <span>Currently a student</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="status" class="w-5 h-5">
-                    <span>Employed</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="status" class="w-5 h-5">
-                    <span>Unemployed</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="status" class="w-5 h-5">
-                    <span>Self-Employed</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="status" class="w-5 h-5">
-                    <span>I am currently serving</span>
-                </label>
-            </div>
-    
-            <!-- Tuition Payment -->
-            <h3 class="text-lg font-semibold text-gray-700 mt-6">What's your preferred tuition payment option? *</h3>
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-3 mt-2">
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="payment" class="w-5 h-5">
-                    <span>Early bird registration - ₦60,000 (ends 25/03/2023)</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="payment" class="w-5 h-5">
-                    <span>One-time payment - ₦75,000</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="payment" class="w-5 h-5">
-                    <span>Pay in installments - ₦80,000 (₦40,000 upfront, ₦40,000 at week 3)</span>
-                </label>
-            </div>
-    
-            <!-- How Did You Hear About Us? -->
-            <h3 class="text-lg font-semibold text-gray-700 mt-6">How did you hear about this program? *</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="referral" class="w-5 h-5">
-                    <span>Social media</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="referral" class="w-5 h-5">
-                    <span>Friend / Family</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="referral" class="w-5 h-5">
-                    <span>Email</span>
-                </label>
-                <label class="flex items-center space-x-2">
-                    <input type="radio" name="referral" class="w-5 h-5">
-                    <span>Other</span>
-                </label>
-            </div>
-    
-            <!-- Message -->
-            <div class="mt-6">
-                <label class="text-gray-700">Message/Request *</label>
-                <textarea rows="4" placeholder="Enter your message" class="w-full p-3 border rounded-md"></textarea>
-            </div>
-    
-            <!-- Submit Button -->
-            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-md font-bold mt-6">
-                Submit Registration
-            </button>
+
+                <!-- Employment Status -->
+                <h3 class="text-lg font-semibold text-gray-700 mt-8 md:col-span-2">Which of these options applies to
+                    you? *</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 md:col-span-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="status" value="Currently a student" class="w-5 h-5" required>
+                        <span>Currently a student</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="status" value="Employed" class="w-5 h-5" required>
+                        <span>Employed</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="status" value="Unemployed" class="w-5 h-5" required>
+                        <span>Unemployed</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="status" value="Self-Employed" class="w-5 h-5" required>
+                        <span>Self-Employed</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="status" value="I am currently serving" class="w-5 h-5" required>
+                        <span>I am currently serving</span>
+                    </label>
+                </div>
+
+                <!-- Tuition Payment -->
+                <h3 class="text-lg font-semibold text-gray-700 mt-8 md:col-span-2">What's your preferred tuition payment
+                    option? *</h3>
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mt-4 md:col-span-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="payment" value="Early bird registration - ₦60,000 (ends 25/03/2023)"
+                            class="w-5 h-5" required>
+                        <span>Early bird registration - ₦60,000 (ends 25/03/2023)</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="payment" value="One-time payment - ₦75,000" class="w-5 h-5" required>
+                        <span>One-time payment - ₦75,000</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="payment"
+                            value="Pay in installments - ₦80,000 (₦40,000 upfront, ₦40,000 at week 3)" class="w-5 h-5"
+                            required>
+                        <span>Pay in installments - ₦80,000 (₦40,000 upfront, ₦40,000 at week 3)</span>
+                    </label>
+                </div>
+
+                <!-- How Did You Hear About Us? -->
+                <h3 class="text-lg font-semibold text-gray-700 mt-8 md:col-span-2">How did you hear about this program?
+                    *</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 md:col-span-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="referral" value="Social media" class="w-5 h-5" required>
+                        <span>Social media</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="referral" value="Friend / Family" class="w-5 h-5" required>
+                        <span>Friend / Family</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="referral" value="Email" class="w-5 h-5" required>
+                        <span>Email</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="referral" value="Other" class="w-5 h-5" required>
+                        <span>Other</span>
+                    </label>
+                </div>
+
+                <!-- Message -->
+                <div class="mt-8 md:col-span-2">
+                    <label class="text-gray-700 font-semibold">Message/Request *</label>
+                    <textarea name="message" rows="4" placeholder="Enter your message"
+                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                        required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-[var(--primary-color)] hover:bg-blue-700 text-white py-3 rounded-md font-bold mt-8 transition transform hover:scale-105 md:col-span-2">
+                    Submit Registration
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
+            <p>Your registration has been submitted successfully.</p>
         </div>
     </div>
 
@@ -193,12 +275,14 @@
 
             <div class="md:col-span-2">
                 <h3 class="text-xl font-bold mb-3">Join our list!</h3>
-                <p class="text-gray-200 mb-4">Stay up-to-date with the latest tech news, freebies, and special offers.</p>
+                <p class="text-gray-200 mb-4">Stay up-to-date with the latest tech news, freebies, and special offers.
+                </p>
                 <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <input type="text" placeholder="First Name *" class="p-3 rounded-md text-black">
                     <input type="text" placeholder="Last Name *" class="p-3 rounded-md text-black">
                     <input type="email" placeholder="Email *" class="p-3 rounded-md text-black">
-                    <button class="bg-white text-[var(--primary-color)] font-bold py-3 rounded-md hover:bg-gray-200 transition md:col-span-3">
+                    <button
+                        class="bg-white text-[var(--primary-color)] font-bold py-3 rounded-md hover:bg-gray-200 transition md:col-span-3">
                         Get Started
                     </button>
                 </form>
@@ -208,6 +292,7 @@
             ©2024 DesignU. All Rights Reserved.
         </div>
     </footer>
-
+<script src="./js/index.js"></script>
 </body>
+
 </html>
