@@ -11,15 +11,20 @@
 <body>
     <header class="header">
         <div class="top-bar">
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +234 814 893 0000</span>
-                <span><i class="fas fa-envelope"></i> info@designu.io</span>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <div class="container">
+                <div class="contact-info">
+                    <div class="top-row">
+                        <span><i class="fas fa-phone"></i> + 234 916 463 8956</span>
+                        <span><i class="fas fa-envelope"></i> info@designu.io</span>
+                    </div>
+                    <span><i class="fas fa-map-marker-alt"></i> 2 Insha-Allah close, off Ramat crescent, Ogudu, Lagos</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://facebook.com/designuonline"><i class="fab fa-facebook-f"></i></a>
+                    <a href="X.com/nerdzfactory_co"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/designuonline"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/designuonline"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
         <nav class="nav-container">
@@ -30,8 +35,14 @@
                 <a href="/">HOME</a>
                 <a href="#about">ABOUT</a>
                 <a href="#blog">BLOG</a>
-                <a href="#programs">PROGRAMS</a>
-                <a href="#designu-academy" class="btn-primary">DesignU Academy</a>
+                <div class="dropdown">
+                    <a href="#programs">PROGRAMS ▼</a>
+                    <div class="dropdown-content">
+                        <a href="#tech-school">Tech School</a>
+                        <a href="#design-school">Design School</a>
+                    </div>
+                </div>
+                <a href="#designu-academy" class="btn-primary">Online Academy</a>
             </div>
             <button class="mobile-menu-button">
                 <i class="fas fa-bars"></i>
@@ -41,6 +52,13 @@
 
     <main>
         <section class="hero">
+            <div class="slideshow">
+                <div class="slide active" style="background-image: linear-gradient(90deg, rgba(27, 43, 64, 0.95) 50%, rgba(27, 43, 64, 0.8) 100%), url('img/cut-in-a-moment-crO6leRWVAQ-unsplash-1-300x225.jpg');"></div>
+                <div class="slide" style="background-image: linear-gradient(90deg, rgba(27, 43, 64, 0.95) 50%, rgba(27, 43, 64, 0.8) 100%), url('img/cut-in-a-moment-df1EaTByTVk-unsplash-300x225.jpg');"></div>
+                <div class="slide" style="background-image: linear-gradient(90deg, rgba(27, 43, 64, 0.95) 50%, rgba(27, 43, 64, 0.8) 100%), url('img/cut-in-a-moment-GUvIyE-_KK0-unsplash-225x300.jpg');"></div>
+                <div class="slide" style="background-image: linear-gradient(90deg, rgba(27, 43, 64, 0.95) 50%, rgba(27, 43, 64, 0.8) 100%), url('img/cut-in-a-moment-Ou9wFeirnz0-unsplash-300x233.jpg');"></div>
+                <div class="slide" style="background-image: linear-gradient(90deg, rgba(27, 43, 64, 0.95) 50%, rgba(27, 43, 64, 0.8) 100%), url('img/cut-in-a-moment-u1QJm4o7cXk-unsplash-300x225.jpg');"></div>
+            </div>
             <div class="hero-content">
                 <h1>TRANSFORM YOUR<br>CAREER TODAY</h1>
                 <p>DesignU presents an unrivalled opportunity for you to launch your technology career with hands-on training and mentorship from industry experts.</p>
@@ -105,10 +123,12 @@
         <section class="testimonial">
             <div class="testimonial-content">
                 <div class="testimonial-text">
-                    <p>"DesignU has supported my transition into Product manager role. It has allowed me connect with senior professionals in tech. The hands-on approach to the knowledge gained & the hands-on approach of our facilitator."</p>
                     <div class="testimonial-author">
                         <img src="img/Headshot-1436x1536.jpg" alt="Kayode O">
-                        <div>
+                    </div>
+                    <div>
+                        <p>"DesignU has supported my transition into Product manager role. It has allowed me connect with senior professionals in tech. The hands-on approach to the knowledge gained & the hands-on approach of our facilitator."</p>
+                        <div class="testimonial-author-info">
                             <h4>Kayode O'</h4>
                             <p>Software Product Manager, Beta (DesignU Alumni)</p>
                         </div>

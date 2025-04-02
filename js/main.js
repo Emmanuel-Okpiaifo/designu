@@ -123,6 +123,22 @@ const setupPartnerLogos = () => {
     });
 };
 
+// Slideshow functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const slideInterval = 5000; // Change slide every 5 seconds
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Auto slideshow
+    let slideTimer = setInterval(nextSlide, slideInterval);
+});
+
 // Initialize all functionality
 const init = () => {
     createMobileMenu();
