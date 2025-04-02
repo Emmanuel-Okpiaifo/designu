@@ -1,298 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesignU</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --primary-color: #1E3A8A;
-            /* Medium-dark blue */
-            --text-color: #1E1E1E;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-color);
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fade-in 1s ease-in-out;
-        }
-
-        .animate-fade-in.delay-1s {
-            animation-delay: 1s;
-        }
-
-        .animate-fade-in.delay-2s {
-            animation-delay: 2s;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 50;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <title>DesignU - Transform Your Career Today</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<body class="bg-white">
-
-    <!-- Top Bar -->
-    <div class="bg-[var(--primary-color)] text-white py-2 text-center text-sm">
-        <p>+234 916 463 8956 &nbsp; | &nbsp; info@designu.io &nbsp; | &nbsp; 2 Insha-Allah close, off Ramat Crescent,
-            Ogudu, Lagos</p>
-    </div>
-
-    <!-- Navbar -->
-
-
-    <!-- Hero Section -->
-    <div class="relative flex flex-col items-center py-16 bg-cover bg-center"
-        style="background-image: url('./martin-sanchez-G78c3DPmD_A-unsplash.jpg');">
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70"></div>
-        <img src="./300-x-100-icon-1.png" alt="Logo" class="w-24 mb-4 z-10 bg-white p-2 rounded">
-        <section class="w-full text-center py-20 px-6 z-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white animate-fade-in">Start Your Tech Journey with
-                DesignU</h1>
-            <p class="text-lg text-gray-300 mt-4 animate-fade-in delay-1s">Join our expert-led courses and gain the
-                skills to excel in the tech industry.</p>
-            <a href="#flem"
-                class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-bold rounded-md hover:bg-yellow-500 transition transform hover:scale-105 animate-fade-in delay-2s">
-                Register Now
-            </a>
-        </section>
-    </div>
-
-    <!-- About Section -->
-    <div id="flem" class="flex flex-col items-center py-16">
-        <div class="text-gray-900 p-8 rounded-lg shadow-lg w-full max-w-4xl mt-16 bg-white animate-fade-in"
-            style="box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);">
-            <h2 class="text-3xl font-bold text-center mb-6">Register Today!</h2>
-            <p class="text-center text-gray-600 mb-8">Tech School April 2023</p>
-
-            <form action="https://formsubmit.co/emmaokpiaifo@gmail.com" method="POST"
-                class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Hidden inputs for FormSubmit.co configuration -->
-                <input type="hidden" name="_subject" value="New Registration!">
-                <input type="hidden" name="_captcha" value="false">
-
-                <div>
-                    <label class="text-gray-700 font-semibold">First Name *</label>
-                    <input type="text" name="first_name" placeholder="Enter your first name"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required>
-                </div>
-                <div>
-                    <label class="text-gray-700 font-semibold">Last Name *</label>
-                    <input type="text" name="last_name" placeholder="Enter your last name"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required>
-                </div>
-                <div>
-                    <label class="text-gray-700 font-semibold">Phone Number *</label>
-                    <input type="tel" name="phone_number" placeholder="Enter your phone number"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required>
-                </div>
-                <div>
-                    <label class="text-gray-700 font-semibold">Email Address *</label>
-                    <input type="email" name="email" placeholder="Enter your email"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required>
-                </div>
-                <div>
-                    <label class="text-gray-700 font-semibold">AGE *</label>
-                    <input type="number" name="age" placeholder="Enter your age"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required>
-                </div>
-                <div>
-                    <label class="text-gray-700 font-semibold">What course are you enrolling for? *</label>
-                    <select name="course"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required>
-                        <option value="">Select a course</option>
-                        <option value="Product Design">Product Design</option>
-                        <option value="Product Management">Product Management</option>
-                    </select>
-                </div>
-
-                <!-- Employment Status -->
-                <h3 class="text-lg font-semibold text-gray-700 mt-8 md:col-span-2">Which of these options applies to
-                    you? *</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 md:col-span-2">
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="status" value="Currently a student" class="w-5 h-5" required>
-                        <span>Currently a student</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="status" value="Employed" class="w-5 h-5" required>
-                        <span>Employed</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="status" value="Unemployed" class="w-5 h-5" required>
-                        <span>Unemployed</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="status" value="Self-Employed" class="w-5 h-5" required>
-                        <span>Self-Employed</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="status" value="I am currently serving" class="w-5 h-5" required>
-                        <span>I am currently serving</span>
-                    </label>
-                </div>
-
-                <!-- Tuition Payment -->
-                <h3 class="text-lg font-semibold text-gray-700 mt-8 md:col-span-2">What's your preferred tuition payment
-                    option? *</h3>
-                <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mt-4 md:col-span-2">
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="payment" value="Early bird registration - ₦60,000 (ends 25/03/2023)"
-                            class="w-5 h-5" required>
-                        <span>Early bird registration - ₦60,000 (ends 25/03/2023)</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="payment" value="One-time payment - ₦75,000" class="w-5 h-5" required>
-                        <span>One-time payment - ₦75,000</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="payment"
-                            value="Pay in installments - ₦80,000 (₦40,000 upfront, ₦40,000 at week 3)" class="w-5 h-5"
-                            required>
-                        <span>Pay in installments - ₦80,000 (₦40,000 upfront, ₦40,000 at week 3)</span>
-                    </label>
-                </div>
-
-                <!-- How Did You Hear About Us? -->
-                <h3 class="text-lg font-semibold text-gray-700 mt-8 md:col-span-2">How did you hear about this program?
-                    *</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 md:col-span-2">
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="referral" value="Social media" class="w-5 h-5" required>
-                        <span>Social media</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="referral" value="Friend / Family" class="w-5 h-5" required>
-                        <span>Friend / Family</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="referral" value="Email" class="w-5 h-5" required>
-                        <span>Email</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="referral" value="Other" class="w-5 h-5" required>
-                        <span>Other</span>
-                    </label>
-                </div>
-
-                <!-- Message -->
-                <div class="mt-8 md:col-span-2">
-                    <label class="text-gray-700 font-semibold">Message/Request *</label>
-                    <textarea name="message" rows="4" placeholder="Enter your message"
-                        class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
-                        required></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit"
-                    class="w-full bg-[var(--primary-color)] hover:bg-blue-700 text-white py-3 rounded-md font-bold mt-8 transition transform hover:scale-105 md:col-span-2">
-                    Submit Registration
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Thank You Modal -->
-    <div id="thankYouModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
-            <p>Your registration has been submitted successfully.</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-[var(--primary-color)] text-white py-10">
-        <div class="container mx-auto px-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-xl font-bold mb-3">DesignU Pages</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:underline">Home</a></li>
-                    <li><a href="#" class="hover:underline">Tech School</a></li>
-                    <li><a href="#" class="hover:underline">DesignU Online</a></li>
-                    <li><a href="#" class="hover:underline">Design School</a></li>
-                </ul>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +234 814 893 0000</span>
+                <span><i class="fas fa-envelope"></i> info@designu.io</span>
             </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/"><img src="img/300-x-100-icon-1.png" alt="DesignU Logo"></a>
+            </div>
+            <div class="nav-links">
+                <a href="/">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#blog">BLOG</a>
+                <a href="#programs">PROGRAMS</a>
+                <a href="#designu-academy" class="btn-primary">DesignU Academy</a>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
 
-            <div class="md:col-span-2">
-                <h3 class="text-xl font-bold mb-3">Join our list!</h3>
-                <p class="text-gray-200 mb-4">Stay up-to-date with the latest tech news, freebies, and special offers.
-                </p>
-                <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <input type="text" placeholder="First Name *" class="p-3 rounded-md text-black">
-                    <input type="text" placeholder="Last Name *" class="p-3 rounded-md text-black">
-                    <input type="email" placeholder="Email *" class="p-3 rounded-md text-black">
-                    <button
-                        class="bg-white text-[var(--primary-color)] font-bold py-3 rounded-md hover:bg-gray-200 transition md:col-span-3">
-                        Get Started
-                    </button>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>TRANSFORM YOUR<br>CAREER TODAY</h1>
+                <p>DesignU presents an unrivalled opportunity for you to launch your technology career with hands-on training and mentorship from industry experts.</p>
+                <div class="cta-buttons">
+                    <a href="#tech-school" class="btn-primary">Start Learning Now</a>
+                    <a href="#designu-online" class="btn-secondary">Explore Programs <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about-grid">
+                <div class="about-images">
+                    <img src="img/cut-in-a-moment-1PxjCRkI70k-unsplash-scaled-qf304ojgjvulk029ondx575bph0ppzm6txbixpw248.jpg" alt="Student working">
+                    <img src="img/cut-in-a-moment-eyPEtKx5zpg-unsplash-scaled-qf304ojgjvulk029ondx575bph0ppzm6txbixpw248.jpg" alt="Student collaboration">
+                    <img src="img/cut-in-a-moment-JvbIDIFrTu8-unsplash-scaled-qf304ojgjvwc5z4l5fqug575on2rtlv7ksjaqknvl8.jpg" alt="Student success">
+                </div>
+                <div class="about-content">
+                    <h2>Design Your Future Today</h2>
+                    <p>DesignU improves the economic outcomes of individuals by equipping them with premium technology skills, business skills and life skills.</p>
+                    <a href="#about" class="btn-text">About us <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Why DesignU?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Flexible Learning</h3>
+                    <p>DesignU offers flexible learning options such as DesignU online, blended learning and one on one.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Hands-on Training</h3>
+                    <p>Through our practical approach, students enjoy live project training environment and real-time technical issues.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Career Mentorship</h3>
+                    <p>DesignU provides mentorship to work with a mentor to help you navigate your tech career.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>In-depth soft skill training</h3>
+                    <p>Students work with skills that market and stand a job in today's market and excel in your career.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Personalized learning</h3>
+                    <p>We ensure our students get personalized post-course skill assessment to be job ready to get a tech job.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Career Exposure</h3>
+                    <p>At DesignU, we offer exposure to the best of a successful career while working online.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="testimonial-content">
+                <div class="testimonial-text">
+                    <p>"DesignU has supported my transition into Product manager role. It has allowed me connect with senior professionals in tech. The hands-on approach to the knowledge gained & the hands-on approach of our facilitator."</p>
+                    <div class="testimonial-author">
+                        <img src="img/Headshot-1436x1536.jpg" alt="Kayode O">
+                        <div>
+                            <h4>Kayode O'</h4>
+                            <p>Software Product Manager, Beta (DesignU Alumni)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3>8</h3>
+                    <p>Courses offered by our instructors</p>
+                </div>
+                <div class="stat-item">
+                    <h3>70.5%</h3>
+                    <p>Of all our program graduates get a job less than 6 months of training</p>
+                </div>
+            </div>
+            <div class="program-promise">
+                <h2>Our Program Promise</h2>
+                <p>At DesignU, Our promise to all our students is to prepare you to land a job in 90 days or less after passing certification.</p>
+                <a href="#learn-more" class="btn-text">Read more about us <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section class="partners">
+            <h2>Our Program Partners</h2>
+            <div class="partners-grid">
+                <img src="img/Itel_Mobile_logo-e1677628251240-2048x793.png" alt="Partner 1">
+                <img src="img/bobo.jpeg" alt="Partner 2">
+                <img src="img/most.png" alt="Partner 3">
+                <img src="img/pave.png" alt="Partner 4">
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Career?</h2>
+                <p>Join our upcoming tech programs in Product Design or Product Management and take the first step towards your dream career in tech.</p>
+                <div class="cta-buttons">
+                    <a href="#enroll" class="btn-primary">Apply Now</a>
+                    <a href="#speak" class="btn-secondary">Schedule a Call</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="img/300-x-100-icon-1.png" alt="DesignU Logo">
+                <p>DesignU is your gateway to a successful tech career. We provide comprehensive training, mentorship, and hands-on experience to help you succeed.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="/">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#programs">Programs</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest tech insights and program updates.</p>
+                <form class="newsletter-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="First name" required>
+                        <input type="text" placeholder="Last name" required>
+                    </div>
+                    <input type="email" placeholder="Email address" required>
+                    <button type="submit" class="btn-primary">Subscribe Now</button>
                 </form>
             </div>
         </div>
-        <div class="text-center text-gray-300 text-sm mt-8">
-            ©2024 DesignU. All Rights Reserved.
+        <div class="footer-bottom">
+            <p>© 2024 DesignU. All rights reserved.</p>
+            <div class="footer-nav">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/sitemap">Sitemap</a>
+            </div>
         </div>
     </footer>
-<script src="./js/index.js"></script>
-</body>
 
+    <script src="js/main.js"></script>
+</body>
 </html>
