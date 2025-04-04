@@ -123,11 +123,27 @@ const setupPartnerLogos = () => {
     });
 };
 
+// Video player functionality
+const setupVideoPlayers = () => {
+    document.querySelectorAll('.video-item').forEach(item => {
+        item.addEventListener('click', function() {
+            // Get the iframe
+            const iframe = this.querySelector('iframe');
+            // Update the src to start playing
+            const videoSrc = iframe.src;
+            iframe.src = videoSrc.replace('autoplay=0', 'autoplay=1');
+            // Add playing class to hide overlay
+            this.classList.add('playing');
+        });
+    });
+};
+
 // Initialize all functionality
 const init = () => {
     createMobileMenu();
     handleNewsletterSubmit();
     setupPartnerLogos();
+    setupVideoPlayers();
 };
 
 // Run initialization when DOM is loaded
