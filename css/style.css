@@ -1326,4 +1326,161 @@ body {
     .footer-newsletter {
         display: none !important;
     }
+}
+
+/* Page Header styles */
+.page-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Add responsive styles for page header */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 3rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 2.5rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Career section */
+.career {
+    background: linear-gradient(rgba(27, 43, 64, 0.85), rgba(27, 43, 64, 0.85)), url('../img/slideshow/5.png');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 0;
+    color: white;
+    position: relative;
+}
+
+.career .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: calc(50% + 2rem);
+}
+
+.career h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.career h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+}
+
+.career p {
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.career .btn-primary {
+    background: var(--secondary-color);
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.career .btn-primary:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .career .container {
+        padding-right: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .career h2::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .career h2 {
+        font-size: 2.25rem;
+    }
+    
+    .career p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .career h2 {
+        font-size: 2rem;
+    }
 } 
