@@ -150,7 +150,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 4px;
     padding: 0.5rem 0;
-    z-index: 2000;
+    z-index: 3000;
 }
 
 .nav-links .dropdown:hover .dropdown-content {
@@ -1114,6 +1114,24 @@ body {
     .footer-brand .social-links {
         justify-content: center;
     }
+
+    .details-grid, .training-grid, .tech-features-grid {
+        grid-template-columns: repeat(2, 1fr); /* Reduce columns to 2 */
+        gap: 1.5rem;
+    }
+
+    .register-today h2 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+
+    .register-today p {
+        font-size: 0.95rem; /* Adjust paragraph size */
+    }
+
+    .register-today .btn-primary {
+        padding: 0.6rem 1.2rem; /* Adjust button padding */
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1216,6 +1234,31 @@ body {
         max-width: 400px;
         margin: 0 auto;
     }
+
+    .details-grid, .training-grid, .tech-features-grid {
+        grid-template-columns: 1fr; /* Stack items vertically */
+    }
+
+    .tech-hero-content h1 {
+        font-size: 2rem; /* Adjust hero heading size */
+    }
+
+    .tech-hero-content .btn-primary {
+        padding: 0.6rem 1rem; /* Adjust button padding */
+        font-size: 0.85rem;
+    }
+
+    .intro-text p {
+        font-size: 18px; /* Adjust intro text size */
+    }
+
+    .register-today h2 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    .register-today p {
+        font-size: 0.9rem; /* Adjust paragraph size */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1269,6 +1312,36 @@ body {
 
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .tech-hero-section {
+        height: 80vh; /* Adjust hero section height */
+    }
+
+    .tech-hero-content h1 {
+        font-size: 1.5rem; /* Adjust hero heading size */
+    }
+
+    .tech-hero-content .btn-primary {
+        padding: 0.5rem 0.8rem; /* Adjust button padding */
+        font-size: 0.8rem;
+    }
+
+    .intro-text p {
+        font-size: 16px; /* Adjust intro text size */
+    }
+
+    .register-today h2 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .register-today p {
+        font-size: 0.85rem; /* Adjust paragraph size */
+    }
+
+    .register-today .btn-primary {
+        padding: 0.5rem 1rem; /* Adjust button padding */
+        font-size: 0.85rem;
     }
 }
 
@@ -2326,8 +2399,95 @@ body {
 
 /* Program Details section */
 .program-details {
-    padding: 4rem 0;
-    background: #f8f9fa;
+    background-color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.program-details h2 {
+    font-size: 2rem;
+    color: #1B2B40;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.program-details .divider {
+    width: 80px;
+    height: 4px;
+    background: #1B2B40;
+    margin: 0 auto 2rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detail-item h3 {
+    font-size: 1rem;
+    color: #1B2B40;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.detail-item p {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.early-bird-offer {
+    font-size: 1.1rem;
+    color: #1B2B40;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.training-for {
+    background-color: #F8F9FA;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.training-for h2 {
+    font-size: 2rem;
+    color: #1B2B40;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.training-for .divider {
+    width: 80px;
+    height: 4px;
+    background: #F7A51C;
+    margin: 0 auto 2rem;
+}
+
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.training-item {
+    text-align: center;
+}
+
+.training-item i {
+    font-size: 2rem;
+    color: #1B2B40;
+    margin-bottom: 1rem;
+}
+
+.training-item p {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.6;
 }
 
 .program-details-container {
@@ -2798,79 +2958,198 @@ body {
     }
 }
 
-.form-section {
-    padding: 40px 30px;
-    background: #fff;
-    max-width: 600px;
-    margin: 40px auto;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    font-family: 'Inter', sans-serif;
-}
-
-.form-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #0046FF;
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-.form-section form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.form-section label {
+.tech-hero-section {
+    background: url('https://designu.io/wp-content/uploads/2025/03/FM_05784-scaled.jpg') no-repeat center center/cover;
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 5px;
-    font-size: 1rem;
-}
-
-.form-section input[type="text"],
-.form-section input[type="email"],
-.form-section select,
-.form-section textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.form-section input[type="text"]:focus,
-.form-section input[type="email"]:focus,
-.form-section select:focus,
-.form-section textarea:focus {
-    border-color: #0046FF;
-    box-shadow: 0 0 8px rgba(0, 70, 255, 0.2);
-}
-
-.form-section input[type="radio"],
-.form-section input[type="checkbox"] {
-    margin: 0;
-    padding: 0;
-}
-
-.form-section button {
-    background: linear-gradient(135deg, #0046FF, #0033CC);
+    text-align: center;
     color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-    margin-top: 20px;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out forwards; /* Add fade-in animation */
+    opacity: 0; /* Start with opacity 0 */
 }
 
-.form-section button:hover {
-    background: linear-gradient(135deg, #0033CC, #0022AA);
-    transform: translateY(-2px);
-} 
+.tech-hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Black overlay with 70% opacity */
+    z-index: 1;
+}
+
+.tech-hero-content {
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay */
+}
+
+.tech-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.tech-hero-content .btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px; /* Makes the button rounded */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between the icon and text */
+    transition: all 0.3s ease;
+    border: 2px solid var(--secondary-color); /* Add a border for hover effect */
+}
+
+.tech-hero-content .btn-primary i {
+    font-size: 1.2rem; /* Adjust icon size */
+}
+
+.tech-hero-content .btn-primary:hover {
+    background-color: transparent; /* Makes the button transparent on hover */
+    color: var(--secondary-color); /* Changes text and icon color to match the border */
+    transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+.tech-intro {
+    background-color: whitesmoke; /* Light background color */
+    padding: 6rem 2rem; /* Add padding for spacing */
+}
+
+.intro-text p {
+    font-family: "Mulish", sans-serif; /* Use the specified font family */
+    font-size: 22px; /* Set the font size */
+    font-weight: bold; /* Set the font weight to bold */
+    text-transform: none; /* Ensure no text transformation */
+    font-style: italic; /* Italicize the text */
+    line-height: 1.3333em; /* Set the line height */
+    color: #1B2B40; /* Dark blue color */
+    max-width: 800px; /* Restrict width for better alignment */
+    margin: 0 auto 2rem; /* Center align and add spacing below */
+    text-align: center; /* Center the text */
+}
+
+.intro-text .divider {
+    width: 80px; /* Width of the divider */
+    height: 4px; /* Height of the divider */
+    background: #F7A51C; /* Yellow color */
+    margin: 1.5rem auto 0; /* Center the divider and add spacing above */
+}
+
+.tech-features {
+    padding: 6rem 2rem; /* Add padding for spacing */
+    background: var(--light-background); /* Light background color */
+    text-align: center; /* Center the text */
+}
+
+.tech-features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #1B2B40;
+    font-weight: 600;
+    position: relative;
+}
+
+.tech-features h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #F7A51C;
+}
+
+.tech-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensure 4 items in a row */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-feature-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.tech-feature-item i {
+    font-size: 2rem;
+    color: #1B2B40;
+    margin-bottom: 1rem;
+}
+
+.tech-feature-item h3 {
+    font-size: 1.2rem;
+    color: #1B2B40;
+    margin-bottom: 0.5rem;
+}
+
+.tech-feature-item p {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Register Today section */
+.register-today {
+    background-color: #1B2B40; /* Dark blue background */
+    color: white; /* White text color */
+    text-align: center; /* Center align text */
+    padding: 4rem 2rem; /* Add padding for spacing */
+}
+
+.register-today h2 {
+    font-size: 2.5rem; /* Large heading size */
+    font-weight: 700; /* Bold font weight */
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+.register-today p {
+    font-size: 1rem; /* Standard font size */
+    margin-bottom: 2rem; /* Space below the paragraph */
+    line-height: 1.6; /* Line height for readability */
+}
+
+.register-today .btn-primary {
+    background-color: #F7A51C; /* Yellow button background */
+    color: white; /* White text color */
+    padding: 0.75rem 1.5rem; /* Button padding */
+    border-radius: 50px; /* Rounded button */
+    font-size: 1rem; /* Button font size */
+    font-weight: 600; /* Bold font weight */
+    text-decoration: none; /* Remove underline */
+    display: inline-flex; /* Align icon and text */
+    align-items: center; /* Center align icon and text */
+    gap: 0.5rem; /* Space between icon and text */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.register-today .btn-primary:hover {
+    background-color: transparent; /* Makes the button transparent on hover */
+    color: #F7A51C; /* Changes text and icon color to match the original background */
+    border: 2px solid #F7A51C; /* Add a border to maintain button visibility */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: none; /* Remove shadow on hover */
+}
+
+.register-today .btn-primary i {
+    font-size: 1.2rem; /* Icon size */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
