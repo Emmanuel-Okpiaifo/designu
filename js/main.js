@@ -57,29 +57,92 @@ document.querySelectorAll('.feature-card').forEach(card => {
 const createMobileMenu = () => {
     const nav = document.querySelector('.nav-container');
     const navLinks = document.querySelector('.nav-links');
-    
-    // Create mobile menu button
-    const menuButton = document.createElement('button');
-    menuButton.className = 'mobile-menu-button';
-    menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-    
-    // Add button to nav
-    nav.appendChild(menuButton);
+    const menuButton = document.querySelector('.mobile-menu-button');
+    const dropdowns = document.querySelectorAll('.dropdown');
     
     // Toggle mobile menu
-    menuButton.addEventListener('click', () => {
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
         navLinks.classList.toggle('show');
+        menuButton.classList.toggle('active');
         menuButton.innerHTML = navLinks.classList.contains('show') 
             ? '<i class="fas fa-times"></i>' 
             : '<i class="fas fa-bars"></i>';
+        
+        // Reset dropdowns when closing menu
+        if (!navLinks.classList.contains('show')) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const content = dropdown.querySelector('.dropdown-content');
+                if (content) {
+                    content.style.display = 'none';
+                }
+            });
+        }
+    });
+    
+    // Handle dropdown toggles
+    dropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector('a');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        
+        dropdownLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Close other dropdowns
+            dropdowns.forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                    const otherContent = otherDropdown.querySelector('.dropdown-content');
+                    if (otherContent) {
+                        otherContent.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+            if (dropdownContent) {
+                if (dropdown.classList.contains('active')) {
+                    dropdownContent.style.display = 'block';
+                } else {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        });
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!nav.contains(e.target) && navLinks.classList.contains('show')) {
             navLinks.classList.remove('show');
+            menuButton.classList.remove('active');
             menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const content = dropdown.querySelector('.dropdown-content');
+                if (content) {
+                    content.style.display = 'none';
+                }
+            });
         }
+    });
+
+    // Close menu when clicking a link (except dropdown toggles)
+    navLinks.querySelectorAll('a:not(.dropdown > a)').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+            menuButton.classList.remove('active');
+            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const content = dropdown.querySelector('.dropdown-content');
+                if (content) {
+                    content.style.display = 'none';
+                }
+            });
+        });
     });
 };
 

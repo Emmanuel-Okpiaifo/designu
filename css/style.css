@@ -1040,6 +1040,104 @@ body {
     color: var(--text-color);
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-button.active {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+        position: relative;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background: white;
+        padding: 6rem 2rem 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.show {
+        right: 0;
+    }
+
+    .nav-links a {
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.3s ease;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show a {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav-links a:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links a:nth-child(2) { transition-delay: 0.2s; }
+    .nav-links a:nth-child(3) { transition-delay: 0.3s; }
+    .nav-links a:nth-child(4) { transition-delay: 0.4s; }
+    .nav-links a:nth-child(5) { transition-delay: 0.5s; }
+
+    .nav-links .dropdown {
+        width: 100%;
+    }
+
+    .nav-links .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 0.5rem;
+        background: rgba(0, 0, 0, 0.02);
+        border-radius: 4px;
+    }
+
+    .nav-links .dropdown.active .dropdown-content {
+        display: block;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .nav-links .dropdown-content a {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-bottom: none;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
 }
 
 /* Responsive design */
