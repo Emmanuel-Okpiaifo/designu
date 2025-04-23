@@ -201,12 +201,60 @@ const setupVideoPlayers = () => {
     });
 };
 
+// Stats counter animation
+const animateCounter = (element, target) => {
+    let current = 0;
+    const duration = 3500; // 3.5 seconds
+    const framesPerSecond = 30;
+    const totalFrames = (duration / 1000) * framesPerSecond;
+    const increment = target / totalFrames;
+    
+    const easeOutQuart = x => 1 - Math.pow(1 - x, 4);
+    
+    let frame = 0;
+    const updateCounter = () => {
+        frame++;
+        const progress = frame / totalFrames;
+        const easedProgress = easeOutQuart(progress);
+        
+        current = Math.min(target, Math.floor(target * easedProgress));
+        
+        // Format number with commas if it's over 999
+        element.textContent = current.toLocaleString();
+        
+        if (frame < totalFrames) {
+            setTimeout(() => requestAnimationFrame(updateCounter), 1000 / framesPerSecond);
+        }
+    };
+    
+    updateCounter();
+};
+
+// Initialize counter animations when they come into view
+const initCounters = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                animateCounter(counter, target);
+                observer.unobserve(counter); // Only animate once
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number').forEach(counter => {
+        observer.observe(counter);
+    });
+};
+
 // Initialize all functionality
 const init = () => {
     createMobileMenu();
     handleNewsletterSubmit();
     setupPartnerLogos();
     setupVideoPlayers();
+    initCounters(); // Add counter initialization
 };
 
 // Run initialization when DOM is loaded
