@@ -242,6 +242,9 @@ body {
     margin: 0 auto;
     padding-left: 4rem;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .hero h1 {
@@ -264,7 +267,7 @@ body {
 
 .hero p {
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     opacity: 0.9;
     line-height: 1.6;
 }
@@ -273,25 +276,24 @@ body {
     display: flex;
     gap: 1.2rem;
     align-items: center;
+    margin-top: 0.25rem;
+    padding-top: 0.5rem;
 }
 
 .cta-buttons .btn-primary {
     background: #0046FF;
     color: white;
     border-radius: 25px;
-    padding: 0.6rem 1.5rem;
+    padding: 0.8rem 1.8rem;
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     border: none;
     text-decoration: none;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.cta-buttons .btn-primary i {
-    font-size: 0.85rem;
+    height: 45px;
 }
 
 .cta-buttons .btn-secondary {
@@ -2003,26 +2005,74 @@ body {
 
 .video-item {
     position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background: #fff;
-}
-
-.video-wrapper {
-    position: relative;
+    width: 100%;
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.video-wrapper iframe {
+.video-item iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.play-button i {
+    color: white;
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+.video-item:hover .play-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.video-item:hover .play-button {
+    transform: scale(1.1);
+}
+
+.video-item.playing .play-overlay {
+    display: none;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Responsive Styles */
