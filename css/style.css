@@ -1276,18 +1276,18 @@ body {
 
     .hero-content {
         padding: 0 1rem;
-        text-align: center;
+        text-align: left;
     }
 
     .hero h1::before {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        transform: none;
     }
 
     .cta-buttons {
         flex-direction: column;
         gap: 1rem;
-        align-items: stretch;
+        align-items: flex-start;
     }
 
     .features-grid {
@@ -2134,9 +2134,8 @@ body {
 
 .programs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
 .program-card {
@@ -2461,12 +2460,12 @@ body {
 /* Program Details section */
 .program-details {
     background-color: white;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
 }
 
 .program-details h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #1B2B40;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -2476,7 +2475,7 @@ body {
     width: 80px;
     height: 4px;
     background: #1B2B40;
-    margin: 0 auto 2rem;
+    margin: 0 auto 3rem;
 }
 
 .details-grid {
@@ -2487,44 +2486,135 @@ body {
     margin: 0 auto;
 }
 
+.detail-item {
+    background: #F8F9FA;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
 .detail-item h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #1B2B40;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .detail-item p {
     font-size: 0.95rem;
     color: #666666;
     line-height: 1.6;
+    margin: 0;
 }
 
 .early-bird-offer {
     font-size: 1.1rem;
     color: #1B2B40;
     font-weight: 600;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #F8F9FA;
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .program-details {
+        padding: 4rem 1.5rem;
+    }
+
+    .program-details h2 {
+        font-size: 2rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .detail-item {
+        padding: 1.25rem;
+    }
+
+    .detail-item h3 {
+        font-size: 1rem;
+    }
+
+    .detail-item p {
+        font-size: 0.9rem;
+    }
+
+    .early-bird-offer {
+        font-size: 1rem;
+        padding: 1.25rem;
+        margin: 2rem 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-details {
+        padding: 3rem 1rem;
+    }
+
+    .program-details h2 {
+        font-size: 1.75rem;
+    }
+
+    .detail-item {
+        padding: 1rem;
+    }
+
+    .detail-item h3 {
+        font-size: 0.95rem;
+    }
+
+    .detail-item p {
+        font-size: 0.85rem;
+    }
+
+    .early-bird-offer {
+        font-size: 0.9rem;
+        padding: 1rem;
+        margin: 1.5rem 0.5rem 0;
+    }
 }
 
 .training-for {
     background-color: #F8F9FA;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
 }
 
 .training-for h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #1B2B40;
     font-weight: 700;
     margin-bottom: 1rem;
+    position: relative;
 }
 
 .training-for .divider {
     width: 80px;
     height: 4px;
     background: #F7A51C;
-    margin: 0 auto 2rem;
+    margin: 0 auto 3rem;
 }
 
 .training-grid {
@@ -2537,6 +2627,16 @@ body {
 
 .training-item {
     text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.training-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .training-item i {
@@ -2549,6 +2649,61 @@ body {
     font-size: 0.95rem;
     color: #666666;
     line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .training-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .training-for {
+        padding: 4rem 1rem;
+    }
+
+    .training-for h2 {
+        font-size: 2rem;
+    }
+
+    .training-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .training-item {
+        padding: 1.25rem;
+    }
+
+    .training-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .training-for {
+        padding: 3rem 1rem;
+    }
+
+    .training-for h2 {
+        font-size: 1.75rem;
+    }
+
+    .training-item {
+        padding: 1rem;
+    }
+
+    .training-item i {
+        font-size: 1.75rem;
+    }
+
+    .training-item p {
+        font-size: 0.85rem;
+    }
 }
 
 .program-details-container {
@@ -3105,9 +3260,9 @@ body {
 }
 
 .tech-features {
-    padding: 6rem 2rem; /* Add padding for spacing */
-    background: var(--light-background); /* Light background color */
-    text-align: center; /* Center the text */
+    padding: 6rem 2rem;
+    background: var(--light-background);
+    text-align: center;
 }
 
 .tech-features h2 {
@@ -3131,7 +3286,7 @@ body {
 
 .tech-features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ensure 4 items in a row */
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -3139,7 +3294,16 @@ body {
 
 .tech-feature-item {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tech-feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .tech-feature-item i {
@@ -3151,13 +3315,77 @@ body {
 .tech-feature-item h3 {
     font-size: 1.2rem;
     color: #1B2B40;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
 }
 
 .tech-feature-item p {
     font-size: 0.95rem;
     color: #666666;
     line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .tech-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-features {
+        padding: 4rem 1rem;
+    }
+
+    .tech-features h2 {
+        font-size: 2rem;
+    }
+
+    .tech-features-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .tech-feature-item {
+        padding: 1.25rem;
+    }
+
+    .tech-feature-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .tech-feature-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-features {
+        padding: 3rem 1rem;
+    }
+
+    .tech-features h2 {
+        font-size: 1.75rem;
+    }
+
+    .tech-feature-item {
+        padding: 1rem;
+    }
+
+    .tech-feature-item i {
+        font-size: 1.75rem;
+    }
+
+    .tech-feature-item h3 {
+        font-size: 1rem;
+    }
+
+    .tech-feature-item p {
+        font-size: 0.85rem;
+    }
 }
 
 /* Register Today section */
