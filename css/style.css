@@ -24,7 +24,7 @@ body {
 
 /* Top bar styles */
 .top-bar {
-    background: #234773;
+    background: #273171;
     color: white;
     padding: 0.35rem 0;
     font-size: 0.8rem;
@@ -1000,7 +1000,7 @@ body {
     width: 100%;
     margin: 4rem 0 0;
     padding: 2rem 0;
-    background: var(--primary-color);
+    background: #273171;
     color: white;
     position: relative;
     left: -2rem;
@@ -4210,5 +4210,458 @@ body {
         padding: 10px 20px;
         font-size: 14px;
         min-width: 140px;
+    }
+}
+
+/* Blog page styles */
+.blog-content {
+    padding: 4rem 0;
+    background: white;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.blog-post {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+}
+
+.blog-image img {
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.blog-post:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-text {
+    padding: 1.5rem;
+}
+
+.blog-text h2 {
+    font-size: 1.25rem;
+    color: #1B2B40;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.blog-meta {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.blog-text p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: #F7A51C;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #e59400;
+}
+
+/* Opportunities page styles */
+.opportunities-content {
+    padding: 4rem 0;
+    background: #F8F9FA;
+}
+
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.opportunity-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.opportunity-icon {
+    width: 60px;
+    height: 60px;
+    background: #F7A51C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.opportunity-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.opportunity-card h3 {
+    font-size: 1.25rem;
+    color: #1B2B40;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.opportunity-card .company {
+    color: #F7A51C;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.opportunity-card .location {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.opportunity-card .location i {
+    margin-right: 0.25rem;
+}
+
+.opportunity-card .salary {
+    color: #1B2B40;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.opportunity-card .description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.cta-section {
+    padding: 4rem 0;
+    background: #1B2B40;
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-section .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-section .btn-primary,
+.cta-section .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-primary {
+    background: #F7A51C;
+    color: white;
+    border: 2px solid #F7A51C;
+}
+
+.cta-section .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-section .btn-primary:hover {
+    background: #e59400;
+    border-color: #e59400;
+    transform: translateY(-2px);
+}
+
+.cta-section .btn-secondary:hover {
+    background: white;
+    color: #1B2B40;
+    transform: translateY(-2px);
+}
+
+/* Responsive styles for blog and opportunities */
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .opportunities-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .opportunity-card {
+        padding: 1.5rem;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    .cta-section .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-section .btn-primary,
+    .cta-section .btn-secondary {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-text {
+        padding: 1rem;
+    }
+
+    .blog-text h2 {
+        font-size: 1.1rem;
+    }
+
+    .opportunity-card {
+        padding: 1rem;
+    }
+
+    .opportunity-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .cta-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .cta-section p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Loading states */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #F7A51C;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Error state */
+.error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.error-state i {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.error-state h3 {
+    color: #dc3545;
+    margin-bottom: 0.5rem;
+}
+
+.error-state p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.error-state .btn-primary {
+    background: #F7A51C;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.error-state .btn-primary:hover {
+    background: #e59400;
+    transform: translateY(-2px);
+}
+
+/* API content styling improvements */
+.blog-post {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.blog-post:nth-child(1) { animation-delay: 0.1s; }
+.blog-post:nth-child(2) { animation-delay: 0.2s; }
+.blog-post:nth-child(3) { animation-delay: 0.3s; }
+.blog-post:nth-child(4) { animation-delay: 0.4s; }
+.blog-post:nth-child(5) { animation-delay: 0.5s; }
+.blog-post:nth-child(6) { animation-delay: 0.6s; }
+
+.opportunity-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.opportunity-card:nth-child(1) { animation-delay: 0.1s; }
+.opportunity-card:nth-child(2) { animation-delay: 0.2s; }
+.opportunity-card:nth-child(3) { animation-delay: 0.3s; }
+.opportunity-card:nth-child(4) { animation-delay: 0.4s; }
+.opportunity-card:nth-child(5) { animation-delay: 0.5s; }
+.opportunity-card:nth-child(6) { animation-delay: 0.6s; }
+.opportunity-card:nth-child(7) { animation-delay: 0.7s; }
+.opportunity-card:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive improvements for API content */
+@media (max-width: 768px) {
+    .loading-state {
+        padding: 2rem 1rem;
+    }
+    
+    .error-state {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    .error-state i {
+        font-size: 2.5rem;
+    }
+}
+
+/* Load More Button Styles */
+.load-more-btn {
+    display: block;
+    margin: 3rem auto 0;
+    padding: 1rem 2rem;
+    background: #F7A51C;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(247, 165, 28, 0.3);
+}
+
+.load-more-btn:hover {
+    background: #e59400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(247, 165, 28, 0.4);
+}
+
+.load-more-btn i {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .load-more-btn {
+        margin: 2rem auto 0;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
