@@ -53,24 +53,7 @@ document.querySelectorAll('.feature-card').forEach(card => {
     observer.observe(card);
 });
 
-// Mobile menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuButton && navLinks) {
-        mobileMenuButton.addEventListener('click', function() {
-        navLinks.classList.toggle('show');
-        });
-    }
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.nav-container')) {
-            navLinks.classList.remove('show');
-        }
-    });
-});
 
 // Global variables for blog pagination
 let allBlogPosts = [];
@@ -934,6 +917,19 @@ const createMobileMenu = () => {
         });
     }
 
+    // Dropdown toggle for mobile
+    const dropdown = document.querySelector('.nav-links .dropdown');
+    const dropdownToggle = dropdown ? dropdown.querySelector('a') : null;
+    if (dropdown && dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            // Only activate on mobile
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    }
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.nav-container')) {
@@ -941,6 +937,8 @@ const createMobileMenu = () => {
             if (mobileMenuButton) {
                 mobileMenuButton.classList.remove('active');
             }
+            // Also close dropdown
+            if (dropdown) dropdown.classList.remove('active');
         }
     });
 };
