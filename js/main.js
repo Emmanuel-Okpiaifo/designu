@@ -4,10 +4,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Use smooth scrolling with fallback for iOS
+            if ('scrollBehavior' in document.documentElement.style) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // Fallback for iOS Safari
+                const targetPosition = target.offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            }
         }
     });
 });
@@ -795,7 +822,11 @@ if (slides.length > 0) {
 
 // Dot navigation
 dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => showSlide(index));
+    const eventType = 'ontouchstart' in window ? 'touchstart' : 'click';
+    dot.addEventListener(eventType, (e) => {
+        e.preventDefault();
+        showSlide(index);
+    });
 });
 
 // Initialize first slide
@@ -911,9 +942,21 @@ const createMobileMenu = () => {
     const navLinks = document.querySelector('.nav-links');
     
     if (mobileMenuButton && navLinks) {
-        mobileMenuButton.addEventListener('click', function() {
+        // Use touchstart for better iOS compatibility
+        const eventType = 'ontouchstart' in window ? 'touchstart' : 'click';
+        
+        mobileMenuButton.addEventListener(eventType, function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             navLinks.classList.toggle('show');
             this.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('show')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
     }
 
@@ -925,6 +968,7 @@ const createMobileMenu = () => {
             // Only activate on mobile
             if (window.innerWidth <= 1024) {
                 e.preventDefault();
+                e.stopPropagation();
                 dropdown.classList.toggle('active');
             }
         });
@@ -939,7 +983,33 @@ const createMobileMenu = () => {
             }
             // Also close dropdown
             if (dropdown) dropdown.classList.remove('active');
+            // Restore body scroll
+            document.body.style.overflow = '';
         }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            navLinks.classList.remove('show');
+            if (mobileMenuButton) {
+                mobileMenuButton.classList.remove('active');
+            }
+            if (dropdown) dropdown.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Handle orientation change
+    window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+            navLinks.classList.remove('show');
+            if (mobileMenuButton) {
+                mobileMenuButton.classList.remove('active');
+            }
+            if (dropdown) dropdown.classList.remove('active');
+            document.body.style.overflow = '';
+        }, 100);
     });
 };
 
@@ -950,6 +1020,35 @@ const init = () => {
     setupPartnerLogos();
     setupVideoPlayers();
     initCounters(); // Add counter initialization
+    
+    // iOS specific optimizations
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        // Fix for iOS Safari viewport issues
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        }
+        
+        // Fix for iOS Safari 100vh issue
+        const setVH = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+        
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    }
 };
 
 // Run initialization when DOM is loaded

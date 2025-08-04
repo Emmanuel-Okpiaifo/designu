@@ -177,6 +177,7 @@ body {
 .hero {
     position: relative;
     min-height: 97vh;
+    min-height: calc(var(--vh, 1vh) * 97);
     display: flex;
     align-items: center;
     background: #1B2B40;
@@ -857,6 +858,11 @@ body {
     text-decoration: none;
     transition: all 0.3s;
     font-size: 0.95rem;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -969,6 +975,11 @@ body {
     border-radius: 8px;
     color: var(--text-color);
     font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
 }
 
 .newsletter-form input::placeholder {
@@ -993,6 +1004,13 @@ body {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .newsletter-form button:hover {
@@ -1047,6 +1065,10 @@ body {
     padding: 0.5rem;
     z-index: 1001;
     transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .mobile-menu-button.active {
@@ -1068,8 +1090,9 @@ body {
         flex-direction: column;
         position: fixed;
         top: 0;
-        right: -300px;
-        width: 300px;
+        right: -100%;
+        width: 100%;
+        max-width: 300px;
         height: 100vh;
         background: white;
         padding: 6rem 2rem 2rem;
@@ -1077,6 +1100,7 @@ body {
         z-index: 1000;
         overflow-y: auto;
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.show {
@@ -1090,6 +1114,10 @@ body {
         padding: 1rem 0;
         font-size: 1.1rem;
         border-bottom: 1px solid rgba(0,0,0,0.1);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     .nav-links.show a {
@@ -1169,6 +1197,32 @@ body {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
+    }
+}
+
+/* iOS Safari specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Fix for iOS Safari flexbox issues */
+    .nav-container {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    /* Fix for iOS Safari grid issues */
+    .features-grid {
+        display: -webkit-grid;
+        display: grid;
+    }
+    
+    /* Fix for iOS Safari transform issues */
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
     }
 }
 
@@ -1470,6 +1524,76 @@ body {
         filter: grayscale(0%);
         opacity: 1;
     }
+}
+
+/* iOS specific optimizations */
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari specific styles */
+    .nav-links {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu-button {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-text {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
+    
+    /* Fix for iOS Safari viewport issues */
+    .hero {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+    
+    /* Fix for iOS Safari input zoom */
+    .newsletter-form input {
+        font-size: 16px;
+    }
+    
+    /* Fix for iOS Safari position fixed issues */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 300px;
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+}
+
+/* Slideshow dots */
+.slideshow-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 3;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dot.active {
+    background: var(--secondary-color);
 }
 
 /* High-resolution screens */
